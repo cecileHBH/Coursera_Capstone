@@ -53,6 +53,7 @@ On the 49 existing columns, we will use only 24 of them :
 
 After dropping the unused columns, we will look for the rows with missing values.
 It looks like we have between 1.5% and 2.1% of rows with missing values for the weather related columns. 
+
 <img src="https://user-images.githubusercontent.com/1349413/97034511-55c84300-1565-11eb-9e11-8a87a58ae487.png" alt="" width="400"/>
 
 We can either fill the missing values or drop the impacted rows. As Those missing values are affecting all severity values so we will choose to drop the rows.
@@ -62,6 +63,7 @@ We can either fill the missing values or drop the impacted rows. As Those missin
 ### Getting a balanced dataset
 
 As we want to predict the severity, we check if the dataset is balanced for this feature
+
 <img src="https://user-images.githubusercontent.com/1349413/97034632-80b29700-1565-11eb-92b4-5b7240ff3937.png" alt="" width="400"/>
 
 It appears the dataset is unbalanced concerning the severity.
