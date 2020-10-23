@@ -21,9 +21,9 @@ The dataset used is the US Accidents (3.5 million records)[^3] dataset from Kagg
 
 This dataset contains accident data covering 49 states of the USA. It has been collected from February 2016 and June 2020 using multiple Traffic APIs. It contains features as start and end time, location, weather conditions and road conditions
 
-### Exploring dataset
+### Exploring the dataset
 
-On the 49 existing columns, we will use only 28 of them : 
+On the 49 existing columns, we will use only 24 of them : 
 * 'Severity' : Shows the severity of the accident, a number between 1 and 4, where 1 indicates the least impact on traffic (i.e., short delay as a result of the accident) and 4 indicates a significant impact on traffic (i.e., long delay).
 * 'Start_Time', Shows start time of the accident in local time zone.
 * 'End_Time' : Shows end time of the accident in local time zone. End time here refers to when the impact of accident on traffic flow was dismissed.
@@ -31,13 +31,9 @@ On the 49 existing columns, we will use only 28 of them :
 * 'Start_Lng' : Shows longitude in GPS coordinate of the start point.
 * 'Description' : Shows natural language description of the accident.
 * 'Temperature(F)' : Shows the temperature (in Fahrenheit)
-* 'Wind_Chill(F)' : Shows the wind chill (in Fahrenheit).
 * 'Humidity(%)' : Shows the humidity (in percentage).
 * 'Pressure(in)' : Shows the air pressure (in inches).
 * 'Visibility(mi)' : Shows visibility (in miles).
-* 'Wind_Direction' : Shows wind direction.
-* 'Wind_Speed(mph)' : Shows wind speed (in miles per hour).
-* 'Precipitation(in)' : Shows precipitation amount in inches, if there is any.
 * 'Weather_Condition' : Shows the weather condition (rain, snow, thunderstorm, fog, etc.)
 * 'Amenity' : A [POI](https://wiki.openstreetmap.org/wiki/Points_of_interest) annotation which indicates presence of [amenity](https://wiki.openstreetmap.org/wiki/Key:amenity) in a nearby location.
 * 'Bump' : A POI annotation which indicates presence of speed bump or hump in a nearby location.
@@ -53,15 +49,32 @@ On the 49 existing columns, we will use only 28 of them :
 * 'Traffic_Signal' : A POI annotation which indicates presence of [traffic_signal](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dtraffic_signals) in a nearby location.
 * 'Turning_Loop' : A POI annotation which indicates presence of [turning_loop](https://wiki.openstreetmap.org/wiki/Tag:highway%3Dturning_loop) in a nearby location.
 
+### Cleaning the dataset
+
+TODO
+
+### Getting a balanced dataset
+
 As we want to predict the severity, we check if the dataset is balanced for this feature
 <img src="https://user-images.githubusercontent.com/1349413/97021232-ddf11d00-1552-11eb-891d-82a1e1d0d9cd.png" alt="" width="400"/>
+
 It appears the dataset is unbalanced concerning the severity.
 
-### smote ?
+There is multiple ways to correct a dataset in order to have a balanced one. Undersampling methods like [Random Undersampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.RandomUnderSampler.html#imblearn.under_sampling.RandomUnderSampler), [Edited Nearest Neighbours](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.EditedNearestNeighbours.html#imblearn.under_sampling.EditedNearestNeighbours) or [Tomek Links](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.TomekLinks.html#imblearn.under_sampling.TomekLinks), could be used, but it would lead to having only 29175 data for each severity and we would lost the advantage of a 3.5 million records.
+
+We also have oversampling methods like [Random Over-Sampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler), [SMOTE](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html#imblearn.over_sampling.SMOTE) or [ADASYN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.ADASYN.html#imblearn.over_sampling.ADASYN) where we would generate additional data of the minority class and keep all the majority class. However, oversampling the minority class can lead to overfitting the model, since it will introduce duplicate instances of a set that is already small.
+
+Another alternative is a hybrid method combining both udersampling and oversampling like [SMOTEENN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTEENN.html#imblearn.combine.SMOTEENN) or [SMOTETomek](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTETomek.html#imblearn.combine.SMOTETomek).
+
+We will use an hybrid method to get a balanced dataset
+TODO
 
 ## Finding correlation
+
 ## Results
+
 ## Discussion
+
 ## Conclusion
 
 ###### References
@@ -71,3 +84,5 @@ It appears the dataset is unbalanced concerning the severity.
 
 [^3] Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. “A Countrywide Traffic Accident Dataset.”, 2019.
 Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
+
+[^4] https://blog.soat.fr/2019/12/techniques-augmentation-dataset-smote/
