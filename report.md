@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The number of annual road traffic deaths has reached 1.35 million worldwide[^1]. Road traffic injuries are the first cause of death of people aged 5-29 years. Every 24 seconds someone dies on the road. Those numbers are astonishingly high but there is another cost of these accidents : the medical costs for the survivors. Injured people often need medical care wheareas for short or long term injuries. The economic consequences of motor vehicle crashes have been estimated between 1% and 3% of the respective GNP of the world countries, reaching a total over $500 billion [^2]
+The number of annual road traffic deaths has reached 1.35 million worldwide<sup>1</sup>. Road traffic injuries are the first cause of death of people aged 5-29 years. Every 24 seconds someone dies on the road. Those numbers are astonishingly high but there is another cost of these accidents : the medical costs for the survivors. Injured people often need medical care wheareas for short or long term injuries. The economic consequences of motor vehicle crashes have been estimated between 1% and 3% of the respective GNP of the world countries, reaching a total over $500 billion<sup>2</sup>
 
 This project aims to determine if we can predict the severity of a car accident using features as date, time, location, weather conditions and road conditions.
 
@@ -15,7 +15,7 @@ If such a prediction is possible, we may be able to find a correlation between t
 
 ### Data source
 
-The dataset used is the US Accidents (3.5 million records)[^3] dataset from Kaggle.
+The dataset used is the US Accidents (3.5 million records)<sup>3</sup> dataset from Kaggle.
 
 ### Description
 
@@ -60,7 +60,7 @@ As we want to predict the severity, we check if the dataset is balanced for this
 
 It appears the dataset is unbalanced concerning the severity.
 
-There is multiple ways to correct a dataset in order to have a balanced one. Undersampling methods like [Random Undersampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.RandomUnderSampler.html#imblearn.under_sampling.RandomUnderSampler), [Edited Nearest Neighbours](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.EditedNearestNeighbours.html#imblearn.under_sampling.EditedNearestNeighbours) or [Tomek Links](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.TomekLinks.html#imblearn.under_sampling.TomekLinks), could be used, but it would lead to having only 29175 data for each severity and we would lost the advantage of a 3.5 million records.
+There is multiple ways to correct a dataset in order to have a balanced one<sup>4</sup>. Undersampling methods like [Random Undersampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.RandomUnderSampler.html#imblearn.under_sampling.RandomUnderSampler), [Edited Nearest Neighbours](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.EditedNearestNeighbours.html#imblearn.under_sampling.EditedNearestNeighbours) or [Tomek Links](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.under_sampling.TomekLinks.html#imblearn.under_sampling.TomekLinks), could be used, but it would lead to having only 29175 data for each severity and we would lost the advantage of a 3.5 million records.
 
 We also have oversampling methods like [Random Over-Sampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler), [SMOTE](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html#imblearn.over_sampling.SMOTE) or [ADASYN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.ADASYN.html#imblearn.over_sampling.ADASYN) where we would generate additional data of the minority class and keep all the majority class. However, oversampling the minority class can lead to overfitting the model, since it will introduce duplicate instances of a set that is already small.
 
@@ -78,11 +78,11 @@ TODO
 ## Conclusion
 
 ###### References
-[^1]World Health Organization (WHO) - Global Status Report on Road Safety 2018 : https://www.who.int/violence_injury_prevention/road_safety_status/2018/en/external
+<sup>1</sup>World Health Organization (WHO) - Global Status Report on Road Safety 2018 : https://www.who.int/violence_injury_prevention/road_safety_status/2018/en/external
 
-[^2]World Health Organization (WHO) - Global Plan for the Decade of Action for Road Safety 2011-2020 : https://www.who.int/roadsafety/decade_of_action/plan/plan_english.pdf?ua=1
+<sup>2</sup>World Health Organization (WHO) - Global Plan for the Decade of Action for Road Safety 2011-2020 : https://www.who.int/roadsafety/decade_of_action/plan/plan_english.pdf?ua=1
 
-[^3] Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. “A Countrywide Traffic Accident Dataset.”, 2019.
+<sup>3</sup>Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, and Rajiv Ramnath. “A Countrywide Traffic Accident Dataset.”, 2019.
 Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teodorescu, and Rajiv Ramnath. "Accident Risk Prediction based on Heterogeneous Sparse Data: New Dataset and Insights." In proceedings of the 27th ACM SIGSPATIAL International Conference on Advances in Geographic Information Systems, ACM, 2019.
 
-[^4] https://blog.soat.fr/2019/12/techniques-augmentation-dataset-smote/
+<sup>4</sup>https://blog.soat.fr/2019/12/techniques-augmentation-dataset-smote/
