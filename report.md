@@ -23,13 +23,12 @@ This dataset contains accident data covering 49 states of the USA. It has been c
 
 ### Exploring the dataset
 
-On the 49 existing columns, we will use only 24 of them : 
+On the 49 existing columns, we will use only 23 of them : 
 * 'Severity' : Shows the severity of the accident, a number between 1 and 4, where 1 indicates the least impact on traffic (i.e., short delay as a result of the accident) and 4 indicates a significant impact on traffic (i.e., long delay).
 * 'Start_Time', Shows start time of the accident in local time zone.
 * 'End_Time' : Shows end time of the accident in local time zone. End time here refers to when the impact of accident on traffic flow was dismissed.
 * 'Start_Lat' : Shows latitude in GPS coordinate of the start point.
 * 'Start_Lng' : Shows longitude in GPS coordinate of the start point.
-* 'Description' : Shows natural language description of the accident.
 * 'Temperature(F)' : Shows the temperature (in Fahrenheit)
 * 'Humidity(%)' : Shows the humidity (in percentage).
 * 'Pressure(in)' : Shows the air pressure (in inches).
@@ -73,6 +72,7 @@ There is multiple ways to correct a dataset in order to have a balanced one<sup>
 We also have oversampling methods like [Random Over-Sampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler), [SMOTE](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html#imblearn.over_sampling.SMOTE) or [ADASYN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.ADASYN.html#imblearn.over_sampling.ADASYN) where we would generate additional data of the minority class and keep all the majority class. However, oversampling the minority class can lead to overfitting the model, since it will introduce duplicate instances of a set that is already small.
 
 <img src="https://raw.githubusercontent.com/rafjaa/machine_learning_fecib/master/src/static/img/resampling.png" alt="" width="400"/>
+
 [source](https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets#t1)
 
 Another alternative is a hybrid method combining both udersampling and oversampling like [SMOTEENN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTEENN.html#imblearn.combine.SMOTEENN) or [SMOTETomek](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTETomek.html#imblearn.combine.SMOTETomek).
