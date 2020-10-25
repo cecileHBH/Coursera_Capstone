@@ -72,7 +72,8 @@ There is multiple ways to correct a dataset in order to have a balanced one<sup>
 
 We also have oversampling methods like [Random Over-Sampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler), [SMOTE](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html#imblearn.over_sampling.SMOTE) or [ADASYN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.ADASYN.html#imblearn.over_sampling.ADASYN) where we would generate additional data of the minority class and keep all the majority class. However, oversampling the minority class can lead to overfitting the model, since it will introduce duplicate instances of a set that is already small.
 
-<img src="https://raw.githubusercontent.com/rafjaa/machine_learning_fecib/master/src/static/img/resampling.png" alt="" width="400"/><sup>5</sup>
+<img src="https://raw.githubusercontent.com/rafjaa/machine_learning_fecib/master/src/static/img/resampling.png" alt="" width="400"/>
+[source](https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets#t1)
 
 Another alternative is a hybrid method combining both udersampling and oversampling like [SMOTEENN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTEENN.html#imblearn.combine.SMOTEENN) or [SMOTETomek](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTETomek.html#imblearn.combine.SMOTETomek).
 
@@ -97,4 +98,3 @@ Moosavi, Sobhan, Mohammad Hossein Samavatian, Srinivasan Parthasarathy, Radu Teo
 
 <sup>4</sup>https://blog.soat.fr/2019/12/techniques-augmentation-dataset-smote/
 
-<sup>5</sup>https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets#t1
