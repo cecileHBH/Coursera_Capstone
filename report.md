@@ -57,7 +57,7 @@ It looks like we have between 1.5% and 2.1% of rows with missing values for the 
 
 We can either fill the missing values or drop the impacted rows. As Those missing values are affecting all severity values so we will choose to drop the rows.
 
-<img src="https://user-images.githubusercontent.com/1349413/97034516-582a9d00-1565-11eb-95ec-b9cd176f4768.png" alt="" width="400"/>
+<img src="https://user-images.githubusercontent.com/1349413/97034516-582a9d00-1565-11eb-95ec-b9cd176f4768.png" alt="" width="700"/>
 
 ### Getting a balanced dataset
 
@@ -71,7 +71,7 @@ There is multiple ways to correct a dataset in order to have a balanced one<sup>
 
 We also have oversampling methods like [Random Over-Sampling](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.RandomOverSampler.html#imblearn.over_sampling.RandomOverSampler), [SMOTE](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.SMOTE.html#imblearn.over_sampling.SMOTE) or [ADASYN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.over_sampling.ADASYN.html#imblearn.over_sampling.ADASYN) where we would generate additional data of the minority class and keep all the majority class. However, oversampling the minority class can lead to overfitting the model, since it will introduce duplicate instances of a set that is already small.
 
-<img src="https://raw.githubusercontent.com/rafjaa/machine_learning_fecib/master/src/static/img/resampling.png" alt="" width="400"/>
+<img src="https://raw.githubusercontent.com/rafjaa/machine_learning_fecib/master/src/static/img/resampling.png" alt="" width="700"/>
 
 [source](https://www.kaggle.com/rafjaa/resampling-strategies-for-imbalanced-datasets#t1)
 
