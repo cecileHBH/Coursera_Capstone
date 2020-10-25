@@ -78,7 +78,14 @@ We also have oversampling methods like [Random Over-Sampling](https://imbalanced
 Another alternative is a hybrid method combining both udersampling and oversampling like [SMOTEENN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTEENN.html#imblearn.combine.SMOTEENN) or [SMOTETomek](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTETomek.html#imblearn.combine.SMOTETomek).
 
 We will use an hybrid method to get a balanced dataset
-TODO
+
+<img src="https://user-images.githubusercontent.com/1349413/97109601-6f3bcd00-16d4-11eb-901b-3ea416dbb6fd.png" alt="" width="600"/>
+
+After using SMOTEENN we can see the repartition of the Severity feature is better. We will run it one more time to even the repartition.
+
+<img src="https://user-images.githubusercontent.com/1349413/97109651-b5912c00-16d4-11eb-8d8f-dc49d6cde17e.png" alt="" width="600"/>
+
+We can see the dataset is well balanced know and we can begin to use it.
 
 ## Finding correlation
 
