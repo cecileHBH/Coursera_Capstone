@@ -87,7 +87,27 @@ After using SMOTEENN we can see the repartition of the Severity feature is bette
 
 We can see the dataset is well balanced know and we can begin to use it.
 
-## Finding correlation
+## Methodology
+
+### Finding correlation
+
+We will use the Pearson Correlation to find out if some specific variables have an interdependence with the Severity of an accident
+
+The Pearson Correlation measures the linear dependence between two variables X and Y.
+The resulting coefficient is a value between -1 and 1 inclusive, where:
+* 1: Total positive linear correlation.
+* 0: No linear correlation, the two variables most likely do not affect each other.
+* -1: Total negative linear correlation.
+
+<img src="https://user-images.githubusercontent.com/1349413/97780670-43ae5c00-1b86-11eb-8c0f-44cf1530c29b.png" alt="" width="600"/>
+
+We can see that there is no variable that have a significant interdependence with the Severity feature. 
+
+As 2 variables: Humidity and pressure have the best results, we will use the meteorological variables and see if we can have good results predicting the severity of a car accident with them.
+
+### Model Development
+
+#### Multiple Linear Regression
 
 ## Results
 
