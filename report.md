@@ -107,16 +107,24 @@ As 2 variables: Humidity and pressure have the best results, we will use the met
 
 ### Model Development
 
-#### Multiple Linear Regression
+We will try 2 different classification models :
 
-We are going to use the meteorological variables to see if they have a correlation with the severity of an accident.
-In order to do that, we will develop a model using the following variables as the predictor variables : 'Temperature','Humidity','Pressure', 'Visibility' and 'Weather_Condition'
+* KNN
+* Decision Tree
 
-<img src="https://user-images.githubusercontent.com/1349413/97781301-a570c500-1b8a-11eb-9f7e-03dca27935a5.png" alt="" width="600"/>
+#### K-Nearest Neighbors
+Let's start with KNN.
 
-We can see the fitted values don't follow the actual values so we will try another model
+K-Nearest Neighbors is an algorithm for supervised learning. Where the data is 'trained' with data points corresponding to their classification. Once a point is to be predicted, it takes into account the 'K' nearest points to it to determine it's classification.
 
-#### Polynomial Regression 
+#### Decision Tree
+
+The basic intuition behind a decision tree is to map out all possible decision paths in the form of a tree
+
+Each internal node corresponds to a test
+Each branch corresponds to a result of the test
+Each leaf node assigns a classification
+We will first create an instance of the DecisionTreeClassifier called severityTree. Inside of the classifier, specify criterion="entropy" so we can see the information gain of each node.
 
 ## Results
 
