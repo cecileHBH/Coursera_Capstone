@@ -77,15 +77,11 @@ We also have oversampling methods like [Random Over-Sampling](https://imbalanced
 
 Another alternative is a hybrid method combining both udersampling and oversampling like [SMOTEENN](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTEENN.html#imblearn.combine.SMOTEENN) or [SMOTETomek](https://imbalanced-learn.readthedocs.io/en/stable/generated/imblearn.combine.SMOTETomek.html#imblearn.combine.SMOTETomek).
 
-We will use an hybrid method to get a balanced dataset
+We will use an undersampling method to get a balanced dataset
 
-<img src="https://user-images.githubusercontent.com/1349413/97109601-6f3bcd00-16d4-11eb-901b-3ea416dbb6fd.png" alt="" width="600"/>
+<img src="https://user-images.githubusercontent.com/1349413/97799545-271a2e80-1c2f-11eb-9331-12788a4060fa.png" alt="" width="700"/>
 
-After using SMOTEENN we can see the repartition of the Severity feature is better. We will run it one more time to even the repartition.
-
-<img src="https://user-images.githubusercontent.com/1349413/97109651-b5912c00-16d4-11eb-8d8f-dc49d6cde17e.png" alt="" width="600"/>
-
-We can see the dataset is well balanced know and we can begin to use it.
+After using Random Undersampling we can see the repartition of the Severity feature is better. We can see the dataset is well balanced know and we can begin to use it.
 
 ## Methodology
 
@@ -99,23 +95,34 @@ The resulting coefficient is a value between -1 and 1 inclusive, where:
 * 0: No linear correlation, the two variables most likely do not affect each other.
 * -1: Total negative linear correlation.
 
-<img src="https://user-images.githubusercontent.com/1349413/97780670-43ae5c00-1b86-11eb-8c0f-44cf1530c29b.png" alt="" width="600"/>
+<img src="https://user-images.githubusercontent.com/1349413/97799638-9bed6880-1c2f-11eb-9cc9-b7fb9dfedab1.png" alt="" width="600"/>
 
 We can see that there is no variable that have a significant interdependence with the Severity feature. 
 
 As 2 variables: Humidity and pressure have the best results, we will use the meteorological variables and see if we can have good results predicting the severity of a car accident with them.
 
+Using a Multiple Linear Regression with the meteorological variables does not give us good results as we can see in the plot
+
+<img src="https://user-images.githubusercontent.com/1349413/97799713-f7b7f180-1c2f-11eb-8cc7-451dad0fb04c.png" alt="" width="600"/>
+
+
 ### Model Development
 
-We will try 2 different classification models :
+As we now know we don't have a linear model, we will try 2 different classification models :
 
 * KNN
 * Decision Tree
+
+We will use the same train test split for both models in order to be able to compare them.
 
 #### K-Nearest Neighbors
 Let's start with KNN.
 
 K-Nearest Neighbors is an algorithm for supervised learning. Where the data is 'trained' with data points corresponding to their classification. Once a point is to be predicted, it takes into account the 'K' nearest points to it to determine it's classification.
+
+<img src="https://user-images.githubusercontent.com/1349413/97799797-65fcb400-1c30-11eb-8f81-de978a86d716.png" alt="" width="600"/>
+
+The best accuracy was with 0.4279928580760354 with k= 1
 
 #### Decision Tree
 
@@ -126,11 +133,23 @@ Each branch corresponds to a result of the test
 Each leaf node assigns a classification
 We will first create an instance of the DecisionTreeClassifier called severityTree. Inside of the classifier, specify criterion="entropy" so we can see the information gain of each node.
 
+<img src="https://user-images.githubusercontent.com/1349413/97799885-c7bd1e00-1c30-11eb-802a-1696b13ed08e.png" alt="" width="600"/>
+
+DecisionTrees's Accuracy:  0.403257414100945
+
 ## Results
+
+As we can see, both KNN and decision tree did not give us good results as we are under 0,5. So the results for these models are less efficient than a random which would give us 0,5.
 
 ## Discussion
 
+In order to get a balanced dataset, we use an undersampling method. This drastically reduce our dataset from 3,5 millions rows to 114812 rows. This could have impacted the results. Using an hybrid method would help us keeping a certain amount of data and could improve the results of the models. 
+Also using the meteorolical variables may have been a bad choice and using another group of feature could be better.
+
 ## Conclusion
+
+In this study, we analyzed the relationship between the severity of an accident and the meteorological conditions. 
+We built and compared two different models to predict the severity of a car accident. Unfortunately, the results were not conclusive.
 
 ###### References
 <sup>1</sup>World Health Organization (WHO) - Global Status Report on Road Safety 2018 : https://www.who.int/violence_injury_prevention/road_safety_status/2018/en/external
